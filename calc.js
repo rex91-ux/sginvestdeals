@@ -48,6 +48,8 @@
       return x * r * GST;
     },
     endowus_cpf: function (x) { return x * 0.004 * GST; },
+    autowealth_cash: function (x) { return x * 0.005 + 18 * 1.33; },   // as AutoWealth quotes it: 0.5% + US$18 (~S$24); no GST mentioned
+    autowealth_cpf: function (x) { return x * 0.0028; },               // CPF OA advisory fee, as quoted
     stashaway: function (x) {
       // StashAway charges each slice at its own rate
       var t = [[25e3, .008], [50e3, .007], [100e3, .006], [250e3, .005], [500e3, .004], [1e6, .003], [1e12, .002]];
@@ -137,6 +139,7 @@
       cpf ? { name: 'Syfe', sub: 'Doesn’t take CPF', v: null, na: 'Not offered', url: '/syfe-referral-code/' }
           : { name: 'Syfe', sub: 'Managed portfolios', v: yv, ccy: 'S$', note: (yv / x * 100).toFixed(2) + '% a year', url: '/syfe-referral-code/' },
       { name: 'Endowus', sub: cpf ? 'CPF, 0.40% flat' : 'Cash, tiered', v: e, ccy: 'S$', note: (e / x * 100).toFixed(2) + '% a year', url: '/endowus-promo-code/' },
+      { name: 'AutoWealth', sub: cpf ? 'CPF OA, 0.28% flat' : '0.5% + US$18 flat', v: cpf ? FEES.autowealth_cpf(x) : FEES.autowealth_cash(x), ccy: 'S$', note: ((cpf ? FEES.autowealth_cpf(x) : FEES.autowealth_cash(x)) / x * 100).toFixed(2) + '% a year', url: '/autowealth-referral-code/' },
       cpf ? { name: 'StashAway', sub: 'Doesn’t take CPF', v: null, na: 'Not offered', url: '/stashaway-referral-code/' }
           : { name: 'StashAway', sub: 'General Investing', v: FEES.stashaway(x), ccy: 'S$', note: (FEES.stashaway(x) / x * 100).toFixed(2) + '% a year', url: '/stashaway-referral-code/' }
     ];
