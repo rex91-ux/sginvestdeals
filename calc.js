@@ -22,6 +22,15 @@
       var r = x < 30000 ? 0.0008 : x < 250000 ? 0.0007 : 0.0006;
       return (r * x + 0.000325 * x + 0.000075 * x + 0.35) * GST;
     },
+    moomoo_us: function (x) {
+      // $0 commission; platform fee US$0.005/share min US$1 (max 0.5%) + GST; settlement US$0.003/share
+      var sh = x / US_PRICE;
+      return Math.min(Math.max(0.005 * sh, 1), 0.005 * x) * GST + 0.003 * sh;
+    },
+    moomoo_sg: function (x, year1) {
+      // commission 0.03% min S$0.99 (waived for new users' first year) + platform 0.03% min S$0.99 + SGX 0.04%; GST on all
+      return ((year1 ? 0 : Math.max(0.0003 * x, 0.99)) + Math.max(0.0003 * x, 0.99) + 0.0004 * x) * GST;
+    },
     syfe_us: function () { return 0; },
     syfe_sg: function (x) {
       // tier set by total Syfe assets; we assume your account is at least the trade size
@@ -108,10 +117,12 @@
     var us = s.mode === 'us', x = s.amt, ccy = us ? 'US$' : 'S$';
     trade.querySelector('output').textContent = ccy + x.toLocaleString('en-SG');
     var t = us ? FEES.tiger_us(x) : FEES.tiger_sg(x), p = us ? FEES.poems_us(x) : FEES.poems_sg(x), y = us ? FEES.syfe_us(x) : FEES.syfe_sg(x);
+    var mm = us ? FEES.moomoo_us(x) : FEES.moomoo_sg(x);
     function pct(v) { return (v / x * 100).toFixed(3) + '% of trade'; }
     bars(trade.querySelector('.cbars'), [
       { name: 'POEMS', sub: 'Cash Plus account', v: p, ccy: ccy, note: p === 0 ? 'no commission' : pct(p), url: '/poems-referral-code/' },
       { name: 'Syfe', sub: 'Syfe Brokerage', v: y, ccy: ccy, note: y === 0 ? 'no commission' : pct(y), url: '/syfe-referral-code/' },
+      { name: 'moomoo', sub: us ? '$0 commission + platform fee' : 'Standard fees', v: mm, ccy: ccy, note: us ? pct(mm) : 'new users yr 1: ' + money(FEES.moomoo_sg(x, true), ccy), url: '/moomoo-referral-code/' },
       { name: 'Tiger', sub: 'Tiger Trade', v: t, ccy: ccy, note: pct(t), url: '/tiger-brokers-referral-code/' }
     ].sort(function (a, b) { return a.v - b.v; }));
   });
