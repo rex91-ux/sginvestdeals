@@ -1,0 +1,11 @@
+{
+  // Must match the Worker name Cloudflare shows for this site exactly,
+  // or `wrangler deploy` creates a second Worker and the live site stops updating.
+  "name": "sginvestdeals",
+  "compatibility_date": "2026-08-01",
+  // Static-assets-only Worker: the repo root is the site root.
+  "assets": {
+    "directory": "./",
+    "html_handling": "auto-trailing-slash"
+  }
+}

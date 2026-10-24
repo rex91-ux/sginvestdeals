@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- =========================================================
+     sginvestdeals.com/ — homepage
+     Fee rules live in /calc.js (FEES). The hero tables below are
+     static: if a fee changes, recompute them with the same rules.
+     All figures include 9% GST. Checked 24 Oct 2026.
+     ========================================================= -->
+<title>Tiger vs POEMS vs Endowus vs StashAway — Fees Compared (Oct 2026) | SG Invest Deals</title>
+<meta name="description" content="What a S$1,000 or S$100,000 trade costs on Tiger and POEMS, and what Endowus and StashAway charge a year on your portfolio — checked against each platform's own fee pages, with working referral codes.">
+<link rel="canonical" href="https://sginvestdeals.com/">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Trading and robo-advisor fees in Singapore, compared at your size">
+<meta property="og:description" content="Tiger vs POEMS per trade, Endowus vs StashAway per year — at S$1,000 and S$100,000. Plus working referral codes.">
+<meta property="og:url" content="https://sginvestdeals.com/">
+<meta property="og:locale" content="en_SG">
+<meta name="theme-color" content="#0F2A5C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body class="home">
+
+<div class="masthead"><div class="wrap">
+  <a class="brand" href="/">SG Invest Deals</a>
+  <nav class="mnav gnav">
+    <span class="gl">Trading</span><a href="/tiger-brokers-referral-code/">Tiger</a><a href="/poems-referral-code/">POEMS</a>
+    <span class="sep" aria-hidden="true"></span>
+    <span class="gl">Robo</span><a href="/endowus-promo-code/">Endowus</a><a href="/stashaway-referral-code/">StashAway</a>
+  </nav>
+</div></div>
+
+<header class="vhero"><div class="wrap">
+  <p class="asof"><span class="dot"></span><span>Fees checked <b>24 Oct 2026</b> against each platform’s own pricing page</span></p>
+  <p class="vlabel">Investing in Singapore — fees compared</p>
+  <h1 class="vtitle">The cheapest platform <em>depends on your size</em></h1>
+
+  <div class="scale">
+    <div class="box">
+      <div class="bt">One trade costs</div>
+      <table>
+        <thead><tr><th></th><th>$1,000</th><th>$100,000</th></tr></thead>
+        <tbody>
+          <tr><td>US · POEMS</td><td class="w">$0</td><td class="w">$0</td></tr>
+          <tr><td>US · Tiger</td><td>$2.20</td><td>$14.17</td></tr>
+          <tr><td>SGX · POEMS</td><td class="w">$1.69</td><td>$120.28</td></tr>
+          <tr><td>SGX · Tiger</td><td>$2.61</td><td class="w">$109.00</td></tr>
+        </tbody>
+      </table>
+      <div class="sub">Buy order, incl. exchange fees and 9% GST. US assumes a US$100 share.</div>
+    </div>
+    <div class="box">
+      <div class="bt">Robo-advisor fee per year</div>
+      <table>
+        <thead><tr><th></th><th>$10k</th><th>$100k</th><th>$500k</th></tr></thead>
+        <tbody>
+          <tr><td>Endowus</td><td class="w">$65</td><td class="w">$654</td><td>$2,725</td></tr>
+          <tr><td>StashAway</td><td>$87</td><td>$736</td><td class="w">$2,643</td></tr>
+        </tbody>
+      </table>
+      <div class="sub">Cash portfolios, platform fee incl. 9% GST. Fund and ETF costs are extra on both.</div>
+    </div>
+  </div>
+
+  <div class="vacts">
+    <a class="b-copy" href="#calc">Check at your size</a>
+    <a class="b-go" href="#codes">Get the codes ↓</a>
+  </div>
+</div></header>
+
+<section class="glance"><div class="wrap">
+  <div class="ggroups">
+    <div class="gg">
+      <div class="gh">Trading platforms <span>buy shares yourself</span></div>
+      <div class="gcards two">
+        <a class="gcard" href="/poems-referral-code/">
+          <div class="k">US stocks · small SGX</div>
+          <div class="h">POEMS</div>
+          <div class="d">$0 US commission; cheapest SGX under ~S$2k</div>
+        </a>
+        <a class="gcard" href="/tiger-brokers-referral-code/">
+          <div class="k">SGX, over ~S$2k</div>
+          <div class="h">Tiger</div>
+          <div class="d">0.03% + 0.03% — about 10% less than POEMS</div>
+        </a>
+      </div>
+    </div>
+    <div class="gg">
+      <div class="gh">Robo-advisors <span>managed portfolios</span></div>
+      <div class="gcards two">
+        <a class="gcard" href="/endowus-promo-code/">
+          <div class="k">Under ~S$425k · CPF</div>
+          <div class="h">Endowus</div>
+          <div class="d">0.60% a year; the only one for CPF</div>
+        </a>
+        <a class="gcard" href="/stashaway-referral-code/">
+          <div class="k">Over ~S$425k</div>
+          <div class="h">StashAway</div>
+          <div class="d">Fees fall in slices to 0.2%</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="calc" class="board-sec"><div class="wrap">
+  <p class="kicker">Check at your size</p>
+  <h2>What you’d actually pay</h2>
+
+  <div class="calc" id="tradeCalc">
+    <h3>Cost of one trade</h3>
+    <p class="cap">Tiger vs POEMS, for a single buy order. Includes exchange and clearing fees and 9% GST; FX conversion not included.</p>
+    <div class="ctrl">
+      <div class="seg" role="tablist" aria-label="Market">
+        <button type="button" role="tab" data-mode="us" aria-selected="true">US stocks</button>
+        <button type="button" role="tab" data-mode="sg" aria-selected="false">SGX stocks</button>
+      </div>
+      <div class="use">
+        <label for="tAmt">Trade size <output>US$1,000</output></label>
+        <input type="range" id="tAmt" min="0" max="1000" step="1">
+        <div class="presets">
+          <button type="button" data-v="500">500</button>
+          <button type="button" data-v="1000">1,000</button>
+          <button type="button" data-v="10000">10,000</button>
+          <button type="button" data-v="100000">100,000</button>
+        </div>
+      </div>
+    </div>
+    <div class="cbars"></div>
+  </div>
+
+  <div class="calc" id="roboCalc">
+    <h3>Robo-advisor fee per year</h3>
+    <p class="cap">Endowus vs StashAway platform fee on your whole portfolio, incl. 9% GST. Fund and ETF costs are charged on top by both.</p>
+    <div class="ctrl">
+      <div class="seg" role="tablist" aria-label="Money source">
+        <button type="button" role="tab" data-mode="cash" aria-selected="true">Cash</button>
+        <button type="button" role="tab" data-mode="cpf" aria-selected="false">CPF</button>
+      </div>
+      <div class="use">
+        <label for="rAmt">Portfolio size <output>S$100,000</output></label>
+        <input type="range" id="rAmt" min="0" max="1000" step="1">
+        <div class="presets">
+          <button type="button" data-v="10000">10k</button>
+          <button type="button" data-v="100000">100k</button>
+          <button type="button" data-v="500000">500k</button>
+          <button type="button" data-v="1000000">1M</button>
+        </div>
+      </div>
+    </div>
+    <div class="cbars"></div>
+  </div>
+
+  <p class="fine">Fees are read from each platform’s own pricing page on 24 Oct 2026. POEMS SGX rates step down as your account grows (0.08% → 0.07% from S$30k → 0.06% from S$250k); the calculator assumes your account is at least the trade size. Endowus charges the rate of the tier your total falls into; StashAway charges each slice at its own rate, which is why the two cross over more than once around S$175k–S$425k.</p>
+</div></section>
+
+<section id="codes" class="codes"><div class="wrap">
+  <p class="kicker">Referral codes</p>
+  <h2>Sign-up rewards</h2>
+  <h3 class="ch">Trading platforms</h3>
+  <div class="cgrid">
+    <a class="card" href="/tiger-brokers-referral-code/">
+      <div class="top"><span class="pill">Up to USD 220</span><span class="pill t">Ends 30 Oct</span></div>
+      <h3>Tiger Brokers</h3>
+      <p class="d">Trade vouchers when you deposit US$1,000+ and keep it 30 days, on top of Tiger’s welcome gifts. Cheapest here for SGX trades above ~S$2,000.</p>
+      <span class="code">Invite link</span>
+    </a>
+    <a class="card" href="/poems-referral-code/">
+      <div class="top"><span class="pill">Up to S$990</span><span class="pill t">Ends 1 Nov</span></div>
+      <h3>POEMS</h3>
+      <p class="d">$0 commission on US stocks with a Cash Plus account. Welcome gift is stock coupons for funding S$3,000 or S$10,000.</p>
+      <span class="code">Referral link</span>
+    </a>
+  </div>
+  <h3 class="ch">Robo-advisors</h3>
+  <div class="cgrid">
+    <a class="card" href="/endowus-promo-code/">
+      <div class="top"><span class="pill">S$20 off fees</span><span class="pill q">Invests CPF</span></div>
+      <h3>Endowus</h3>
+      <p class="d">S$20 fee credit once you invest S$1,000. Lower fee than StashAway for most portfolios under ~S$425k.</p>
+      <span class="code">KVXXK</span>
+    </a>
+    <a class="card" href="/stashaway-referral-code/">
+      <div class="top"><span class="pill">+3 months free</span><span class="pill q">No minimum</span></div>
+      <h3>StashAway</h3>
+      <p class="d">An extra 3 months without management fees. Its tiered fee beats Endowus on larger portfolios.</p>
+      <span class="code">Invite link</span>
+    </a>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 class="sm">Rewards ending soon</h2>
+  <ul class="expiring">
+    <li><b>30 Oct</b> · Tiger referral campaign (USD vouchers) ends 3pm</li>
+    <li><b>30 Oct</b> · StashAway welcome rewards (ETF rebate, return booster) end</li>
+    <li><b>1 Nov</b> · POEMS welcome gift (stock coupons) ends</li>
+  </ul>
+</div></section>
+
+<section><div class="wrap">
+  <div class="disc"><b>Not financial advice.</b> This site compares platform fees and sign-up rewards only. It doesn’t recommend any investment, and nothing here tells you what to buy. Investing involves risk, including losing money. Check each platform’s own terms before signing up.</div>
+</div></section>
+
+<footer><div class="wrap">
+  <p><b>Disclosure.</b> The codes and links on this site are my own referral codes. If you use one, you get the platform’s new-customer reward and I usually get a referral reward too — it costs you nothing extra and doesn’t change your fees. Where a platform’s own promo is worth more than its referral, the page says so.</p>
+  <p>Not affiliated with, endorsed by, or operated by Tiger Brokers, Phillip Securities (POEMS), Endowus or StashAway. Fees last checked 24 October 2026.</p>
+  <p style="margin:0">Also by me: <a href="https://sgpowerdeals.com/">SG Power Deals</a> — Singapore electricity plans compared.</p>
+</div></footer>
+
+<script src="/calc.js" defer></script>
+</body>
+</html>
