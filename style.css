@@ -447,3 +447,10 @@ h3.ch+.cgrid{margin-top:12px}
 }
 @media (max-width:420px){ .gnav{gap:7px;font-size:12.5px} .gnav .gl{font-size:9px;letter-spacing:.1em} .gnav .sep{margin:0 1px} }
 @media (max-width:350px){ .gnav .gl{display:none} }
+
+/* five platforms: stacked groups of three */
+.ggroups{grid-template-columns:1fr;gap:18px}
+.gcards.three{grid-template-columns:repeat(3,1fr)}
+.gg+.gg .gh{color:var(--ink)} .gg+.gg .gh span{color:var(--muted)}
+.card.wide{margin-top:12px}
+@media (max-width:620px){ .gcards.three{grid-template-columns:1fr 1fr} .gcards.three .gcard:last-child{grid-column:1/-1} }

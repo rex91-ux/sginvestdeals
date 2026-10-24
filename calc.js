@@ -22,6 +22,17 @@
       var r = x < 30000 ? 0.0008 : x < 250000 ? 0.0007 : 0.0006;
       return (r * x + 0.000325 * x + 0.000075 * x + 0.35) * GST;
     },
+    syfe_us: function () { return 0; },
+    syfe_sg: function (x) {
+      // tier set by total Syfe assets; we assume your account is at least the trade size
+      var r = x < 50000 ? 0.0006 : x < 250000 ? 0.00055 : x < 1000000 ? 0.0005 : 0.00045;
+      return (Math.max(r * x, 1.98) + 0.000075 * x + 0.000325 * x) * GST;
+    },
+    syfe_robo: function (x) {
+      // Syfe applies the rate of the tier your total falls into
+      var r = x < 50000 ? 0.0065 : x < 250000 ? 0.0055 : x < 1000000 ? 0.0045 : 0.0035;
+      return x * r * GST;
+    },
     endowus_cash: function (x) {
       // Endowus applies the rate of the tier your total falls into
       var r = x < 200000 ? 0.006 : x < 1000000 ? 0.005 : 0.0035;
@@ -96,10 +107,11 @@
   if (trade) wire(trade, 100, 200000, 1000, function (s) {
     var us = s.mode === 'us', x = s.amt, ccy = us ? 'US$' : 'S$';
     trade.querySelector('output').textContent = ccy + x.toLocaleString('en-SG');
-    var t = us ? FEES.tiger_us(x) : FEES.tiger_sg(x), p = us ? FEES.poems_us(x) : FEES.poems_sg(x);
+    var t = us ? FEES.tiger_us(x) : FEES.tiger_sg(x), p = us ? FEES.poems_us(x) : FEES.poems_sg(x), y = us ? FEES.syfe_us(x) : FEES.syfe_sg(x);
     function pct(v) { return (v / x * 100).toFixed(3) + '% of trade'; }
     bars(trade.querySelector('.cbars'), [
       { name: 'POEMS', sub: 'Cash Plus account', v: p, ccy: ccy, note: p === 0 ? 'no commission' : pct(p), url: '/poems-referral-code/' },
+      { name: 'Syfe', sub: 'Syfe Brokerage', v: y, ccy: ccy, note: y === 0 ? 'no commission' : pct(y), url: '/syfe-referral-code/' },
       { name: 'Tiger', sub: 'Tiger Trade', v: t, ccy: ccy, note: pct(t), url: '/tiger-brokers-referral-code/' }
     ].sort(function (a, b) { return a.v - b.v; }));
   });
@@ -109,7 +121,10 @@
     var cpf = s.mode === 'cpf', x = s.amt;
     robo.querySelector('output').textContent = 'S$' + x.toLocaleString('en-SG');
     var e = cpf ? FEES.endowus_cpf(x) : FEES.endowus_cash(x);
+    var yv = cpf ? null : FEES.syfe_robo(x);
     var rows = [
+      cpf ? { name: 'Syfe', sub: 'Doesn’t take CPF', v: null, na: 'Not offered', url: '/syfe-referral-code/' }
+          : { name: 'Syfe', sub: 'Managed portfolios', v: yv, ccy: 'S$', note: (yv / x * 100).toFixed(2) + '% a year', url: '/syfe-referral-code/' },
       { name: 'Endowus', sub: cpf ? 'CPF, 0.40% flat' : 'Cash, tiered', v: e, ccy: 'S$', note: (e / x * 100).toFixed(2) + '% a year', url: '/endowus-promo-code/' },
       cpf ? { name: 'StashAway', sub: 'Doesn’t take CPF', v: null, na: 'Not offered', url: '/stashaway-referral-code/' }
           : { name: 'StashAway', sub: 'General Investing', v: FEES.stashaway(x), ccy: 'S$', note: (FEES.stashaway(x) / x * 100).toFixed(2) + '% a year', url: '/stashaway-referral-code/' }
