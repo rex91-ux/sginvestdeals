@@ -454,3 +454,17 @@ h3.ch+.cgrid{margin-top:12px}
 .gg+.gg .gh{color:var(--ink)} .gg+.gg .gh span{color:var(--muted)}
 .card.wide{margin-top:12px}
 @media (max-width:620px){ .gcards.three{grid-template-columns:1fr 1fr} .gcards.three .gcard:last-child{grid-column:1/-1} }
+/* sister link to sgpowerdeals.com: teal (its brand) so it stands apart; side card on wide screens */
+.sister{display:block;margin-top:16px;padding:18px 20px;border-radius:16px;text-decoration:none;color:#fff;
+  background:linear-gradient(135deg,#083E43,#0C5C63);box-shadow:0 12px 28px -14px rgba(8,62,67,.75);transition:transform .15s ease}
+.sister:hover{transform:translateY(-2px)}
+.sister .k{font:600 11px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
+.sister .h{font:700 19px/1.25 var(--sans);letter-spacing:-.015em;margin-bottom:6px}
+.sister .d{font-size:14px;line-height:1.45;color:#CFE3E1}
+@media (min-width:1240px){
+  .sister{position:fixed;top:140px;right:24px;width:210px;margin:0;padding:18px;z-index:30}
+  .sister:hover{transform:translateY(-3px)}
+  .sister .k{font-size:10px;letter-spacing:.14em;line-height:1.35}
+  .sister .h{font-size:16.5px}
+  .sister .d{font-size:12.5px;line-height:1.45}
+}
