@@ -1,0 +1,5 @@
+# Files in this repo that must NOT be published to sginvestdeals.com.
+.github/
+wrangler.jsonc
+.assetsignore
+README.md
